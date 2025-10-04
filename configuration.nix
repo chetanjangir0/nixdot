@@ -28,7 +28,7 @@
   time.timeZone = "Asia/Kolkata";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8"; # for btop to work
+  i18n.defaultLocale = "en_IN";
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_IN";
@@ -40,6 +40,7 @@
     LC_PAPER = "en_IN";
     LC_TELEPHONE = "en_IN";
     LC_TIME = "en_IN";
+    LANG = "en_US.UTF-8";
   };
 
   # Enable the X11 windowing system.
