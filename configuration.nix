@@ -28,7 +28,7 @@
   time.timeZone = "Asia/Kolkata";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_IN";
+  i18n.defaultLocale = "en_US.UTF-8"; # for btop to work
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_IN";
@@ -152,6 +152,9 @@
 
      # languages
      nodejs
+     go
+     gcc #required for treesitter
+     gnumake
   ];
   services.cloudflare-warp.enable = true;
   
