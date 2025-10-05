@@ -112,7 +112,7 @@
     ];
   };
 
-  # Install firefox.
+  # Install firefox
   programs.firefox.enable = true;
 
   # Allow unfree packages
