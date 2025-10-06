@@ -44,7 +44,7 @@ in
             };
             Shopping = {
               color = "yellow";
-              icon = "dollarsign";
+              icon = "dollar";
               id = 3;
             };
         };
