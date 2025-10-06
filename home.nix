@@ -78,6 +78,7 @@ in
 
         # You can safely keep or trim the settings below
         settings = {
+          "browser.theme.dark" = true;
           # "signon.rememberSignons" = false;
           # "browser.cache.jsbc_compression_level" = 3;
           # "network.http.max-connections" = 1200;
