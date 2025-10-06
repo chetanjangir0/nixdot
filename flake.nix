@@ -3,28 +3,31 @@
 
   inputs = {
     # Nixpkgs source
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     # Home Manager (follows nixpkgs for compatibility)
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/home-manager/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
     # Zen Browser flake
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, zen-browser, ... }@inputs:
+  outputs = { self, nixpkgs-stable, nixpkgs-unstable, home-manager, zen-browser, ... }@inputs:
   let
     system = "x86_64-linux";
   in {
     # 🖥️ Define your NixOS host here
     nixosConfigurations = {
-      chetan = nixpkgs.lib.nixosSystem {
+      chetan = nixpkgs-stable.lib.nixosSystem {
         inherit system;
         specialArgs = { inherit inputs system; };
 
@@ -49,6 +52,6 @@
     };
 
     # ✨ Optional: Formatter
-    formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt;
+    formatter.${system} = nixpkgs-stable.legacyPackages.${system}.nixfmt;
   };
 }
