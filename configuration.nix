@@ -7,8 +7,11 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
+      ./hardware-configuration.nix
     ];
+
+  # flakes
+  # nix.settings.experimental-features = [ "nix-command" "flakes"];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
