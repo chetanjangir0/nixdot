@@ -3,7 +3,7 @@
 
   inputs = {
     # Nixpkgs source
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     # Home Manager (follows nixpkgs for compatibility)
     home-manager = {

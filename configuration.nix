@@ -11,7 +11,7 @@
     ];
 
   # flakes
-  # nix.settings.experimental-features = [ "nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes"];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -143,7 +143,7 @@
      wl-clipboard
      alacritty
      yazi
-     rofi-wayland
+     rofi
 
      tldr
      tmux
@@ -174,7 +174,7 @@
      };
   };
 
-  programs.ssh.startAgent = true; # cache the ssh key passphrase (for git mainly)
+  programs.ssh.startAgent = false; # cosmic de already provides its own 
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
