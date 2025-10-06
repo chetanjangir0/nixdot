@@ -135,6 +135,7 @@
      fzf
      btop
      openssl
+     ripgrep
 
      # sway
      swaybg
