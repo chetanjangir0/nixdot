@@ -138,6 +138,8 @@
     alacritty
     yazi
     rofi-wayland
+    light
+    slurp
 
     tldr
     tmux
