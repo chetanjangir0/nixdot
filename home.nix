@@ -16,67 +16,67 @@ in {
     zen-browser = {
       enable = true;
 
-      profiles.${username} = {
-        id = 0;
-        name = username;
-        isDefault = true;
-
-        containers = {
-          Personal = {
-            color = "purple";
-            icon = "fingerprint";
-            id = 1;
-          };
-          Work = {
-            color = "blue";
-            icon = "briefcase";
-            id = 2;
-          };
-          Shopping = {
-            color = "yellow";
-            icon = "dollar";
-            id = 3;
-          };
-        };
-
-        # Spaces
-        spacesForce = true;
-        spaces = let
-          containers =
-            config.programs.zen-browser.profiles.${username}.containers;
-        in {
-          "Personal" = {
-            id = "c6de089c-410d-4206-961d-ab11f988d40a";
-            position = 1000;
-            icon = "🏠";
-            container = containers."Personal".id;
-          };
-
-          "Work" = {
-            id = "cdd10fab-4fc5-494b-9041-325e5759195b";
-            position = 2000;
-            icon = "💼";
-            container = containers."Work".id;
-          };
-
-          "Shopping" = {
-            id = "78aabdad-8aae-4fe0-8ff0-2a0c6c4ccc24";
-            position = 3000;
-            icon = "💸";
-            container = containers."Shopping".id;
-          };
-        };
+      # profiles.${username} = {
+      #   id = 0;
+      #   name = username;
+      #   isDefault = true;
+      #
+      #   containers = {
+      #     Personal = {
+      #       color = "purple";
+      #       icon = "fingerprint";
+      #       id = 1;
+      #     };
+      #     Work = {
+      #       color = "blue";
+      #       icon = "briefcase";
+      #       id = 2;
+      #     };
+      #     Shopping = {
+      #       color = "yellow";
+      #       icon = "dollar";
+      #       id = 3;
+      #     };
+      #   };
+      #
+      #   # Spaces
+      #   spacesForce = true;
+      #   spaces = let
+      #     containers =
+      #       config.programs.zen-browser.profiles.${username}.containers;
+      #   in {
+      #     "Personal" = {
+      #       id = "c6de089c-410d-4206-961d-ab11f988d40a";
+      #       position = 1000;
+      #       icon = "🏠";
+      #       container = containers."Personal".id;
+      #     };
+      #
+      #     "Work" = {
+      #       id = "cdd10fab-4fc5-494b-9041-325e5759195b";
+      #       position = 2000;
+      #       icon = "💼";
+      #       container = containers."Work".id;
+      #     };
+      #
+      #     "Shopping" = {
+      #       id = "78aabdad-8aae-4fe0-8ff0-2a0c6c4ccc24";
+      #       position = 3000;
+      #       icon = "💸";
+      #       container = containers."Shopping".id;
+      #     };
+      #   };
 
         # You can safely keep or trim the settings below
-        settings = {
-          "browser.theme.dark" = true;
+        # settings = {
+        #   "browser.theme.dark" = true;
           # "signon.rememberSignons" = false;
           # "browser.cache.jsbc_compression_level" = 3;
           # "network.http.max-connections" = 1200;
           # "gfx.canvas.accelerated" = true;
           # "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-        };
-      };
+        # };
+      # };
 
       # Optional example extensions
       policies = {
@@ -109,20 +109,20 @@ in {
           "privacy.donottrackheader.enabled" = mkLocked true;
         };
 
-        ExtensionSettings = with builtins;
-          let
-            extension = shortId: uuid: {
-              name = uuid;
-              value = {
-                install_url =
-                  "https://addons.mozilla.org/en-US/firefox/downloads/latest/${shortId}/latest.xpi";
-                installation_mode = "normal_installed";
-              };
-            };
-          in listToAttrs [
-            (extension "ublock-origin" "uBlock0@raymondhill.net")
-            (extension "sponsorblock" "sponsorBlocker@ajay.app")
-          ];
+        # ExtensionSettings = with builtins;
+        #   let
+        #     extension = shortId: uuid: {
+        #       name = uuid;
+        #       value = {
+        #         install_url =
+        #           "https://addons.mozilla.org/en-US/firefox/downloads/latest/${shortId}/latest.xpi";
+        #         installation_mode = "normal_installed";
+        #       };
+        #     };
+        #   in listToAttrs [
+        #     (extension "ublock-origin" "uBlock0@raymondhill.net")
+        #     (extension "sponsorblock" "sponsorBlocker@ajay.app")
+        #   ];
         # To add additional extensions, find it on addons.mozilla.org, find
         # the short ID in the url (like https=//addons.mozilla.org/en-US/firefox/addon/!SHORT_ID!/)
         # Then, download the XPI by filling it in to the install_url template, unzip it,
