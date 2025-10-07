@@ -1,22 +1,13 @@
-{
-  inputs,
-  pkgs,
-  config,
-  ...
-}:
-let
-  username = "chetan"; # 
-in
-{
+{ inputs, pkgs, config, ... }:
+let username = "chetan";
+in {
   home = {
     username = username;
     homeDirectory = "/home/${username}";
-    stateVersion = "25.05"; 
+    stateVersion = "25.05";
   };
 
-  imports = [
-    inputs.zen-browser.homeModules.beta
-  ];
+  imports = [ inputs.zen-browser.homeModules.beta ];
 
   programs = {
     home-manager.enable = true;
@@ -30,50 +21,50 @@ in
         name = username;
         isDefault = true;
 
-
         containers = {
-            Personal = {
-              color = "purple";
-              icon = "fingerprint";
-              id = 1;
-            };
-            Work = {
-              color = "blue";
-              icon = "briefcase";
-              id = 2;
-            };
-            Shopping = {
-              color = "yellow";
-              icon = "dollar";
-              id = 3;
-            };
+          Personal = {
+            color = "purple";
+            icon = "fingerprint";
+            id = 1;
+          };
+          Work = {
+            color = "blue";
+            icon = "briefcase";
+            id = 2;
+          };
+          Shopping = {
+            color = "yellow";
+            icon = "dollar";
+            id = 3;
+          };
         };
 
-          # Spaces
+        # Spaces
         spacesForce = true;
         spaces = let
-            containers = config.programs.zen-browser.profiles.${username}.containers;
+          containers =
+            config.programs.zen-browser.profiles.${username}.containers;
         in {
-            "Personal" = {
-              id = "c6de089c-410d-4206-961d-ab11f988d40a";
-              position = 1000;
-              icon = "🏠";
-              container = containers."Personal".id;
-            };
-            
-            "Work" = {
-              id = "cdd10fab-4fc5-494b-9041-325e5759195b";
-              position = 2000;
-              icon = "💼";
-              container = containers."Work".id;
-            };
-            
-            "Shopping" = {
-              id = "78aabdad-8aae-4fe0-8ff0-2a0c6c4ccc24";
-              position = 3000;
-              icon = "💸";
-              container = containers."Shopping".id;
-            };
+          "Personal" = {
+            id = "c6de089c-410d-4206-961d-ab11f988d40a";
+            position = 1000;
+            icon = "🏠";
+            container = containers."Personal".id;
+          };
+
+          "Work" = {
+            id = "cdd10fab-4fc5-494b-9041-325e5759195b";
+            position = 2000;
+            icon = "💼";
+            container = containers."Work".id;
+          };
+
+          "Shopping" = {
+            id = "78aabdad-8aae-4fe0-8ff0-2a0c6c4ccc24";
+            position = 3000;
+            icon = "💸";
+            container = containers."Shopping".id;
+          };
         };
 
         # You can safely keep or trim the settings below
@@ -108,28 +99,27 @@ in
         };
 
         Preferences = let
-           mkLocked = value: {
-             Value = value;
-             Status = "locked";
-           };
+          mkLocked = value: {
+            Value = value;
+            Status = "locked";
+          };
         in {
-           "browser.tabs.warnOnClose" = mkLocked false;
-           # "browser.startup.homepage" = mkLocked "https://duckduckgo.com";
-           "privacy.donottrackheader.enabled" = mkLocked true;
+          "browser.tabs.warnOnClose" = mkLocked false;
+          # "browser.startup.homepage" = mkLocked "https://duckduckgo.com";
+          "privacy.donottrackheader.enabled" = mkLocked true;
         };
 
-        ExtensionSettings = 
-        with builtins;
+        ExtensionSettings = with builtins;
           let
             extension = shortId: uuid: {
               name = uuid;
               value = {
-                install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/${shortId}/latest.xpi";
+                install_url =
+                  "https://addons.mozilla.org/en-US/firefox/downloads/latest/${shortId}/latest.xpi";
                 installation_mode = "normal_installed";
               };
             };
-          in
-          listToAttrs [
+          in listToAttrs [
             (extension "ublock-origin" "uBlock0@raymondhill.net")
             (extension "sponsorblock" "sponsorBlocker@ajay.app")
           ];

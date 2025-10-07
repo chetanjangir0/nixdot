@@ -5,10 +5,9 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -55,14 +54,13 @@
   programs.sway.enable = true;
 
   # oh my zsh
-  environment.shells = with pkgs;
-  [zsh];
+  environment.shells = with pkgs; [ zsh ];
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
   environment.shellInit = ''
-  if [ ! -d "$HOME/.oh-my-zsh" ]; then
-     git clone https://github.com/ohmyzsh/ohmyzsh.git "$HOME/.oh-my-zsh"
-  fi'';
+    if [ ! -d "$HOME/.oh-my-zsh" ]; then
+       git clone https://github.com/ohmyzsh/ohmyzsh.git "$HOME/.oh-my-zsh"
+    fi'';
   # programs.zsh = {
   #    enable = true;
   #    ohMyZsh.enable = true;
@@ -92,11 +90,9 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-  
+
   fonts.fontconfig.enable = true;
-  fonts.packages = with pkgs;[
-    nerd-fonts.caskaydia-cove
-  ];
+  fonts.packages = with pkgs; [ nerd-fonts.caskaydia-cove ];
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -107,9 +103,10 @@
     description = "chetan";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
-    packages = with pkgs; [
-    #  thunderbird
-    ];
+    packages = with pkgs;
+      [
+        #  thunderbird
+      ];
   };
 
   # Install firefox
@@ -121,58 +118,58 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     neovim 
-     git
-     stow
-     cloudflare-warp
-     bat
-     curl
-     fastfetch
-     ffmpeg
-     fzf
-     btop
-     openssl
-     ripgrep
+    neovim
+    git
+    stow
+    cloudflare-warp
+    bat
+    curl
+    fastfetch
+    ffmpeg
+    fzf
+    btop
+    openssl
+    ripgrep
 
-     # sway
-     swaybg
-     waybar
-     wl-clipboard
-     alacritty
-     yazi
-     rofi-wayland
+    # sway
+    swaybg
+    waybar
+    wl-clipboard
+    alacritty
+    yazi
+    rofi-wayland
 
-     tldr
-     tmux
-     tree
-     vlc
-     zathura
-     posting
+    tldr
+    tmux
+    tree
+    vlc
+    zathura
+    posting
 
-     xdg-desktop-portal-wlr
-     xdg-desktop-portal
+    xdg-desktop-portal-wlr
+    xdg-desktop-portal
 
-     # languages
-     nodejs
-     go
-     gcc #required for treesitter
-     gnumake
-     rustup
+    # languages
+    nodejs
+    go
+    gcc # required for treesitter
+    gnumake
+    rustup
   ];
   services.cloudflare-warp.enable = true;
-  
+
   services.keyd.enable = true;
   services.keyd.keyboards.default = {
-     ids = ["*"];
-     settings = {
-        main = {
-  	       capslock = "overload(control,esc)";
-           esc = "capslock";
-        };
-     };
+    ids = [ "*" ];
+    settings = {
+      main = {
+        capslock = "overload(control,esc)";
+        esc = "capslock";
+      };
+    };
   };
 
-  programs.ssh.startAgent = false; # cosmic de already provides its own 
+  programs.ssh.startAgent = false; # cosmic de already provides its own
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

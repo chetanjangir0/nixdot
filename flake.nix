@@ -21,39 +21,36 @@
     };
   };
 
-  outputs = { self, nixpkgs-stable, nixpkgs-unstable, home-manager, zen-browser, ... }@inputs:
-  let
-    system = "x86_64-linux";
-  in {
-    # 🖥️ Define your NixOS host here
-    nixosConfigurations = {
-      chetan = nixpkgs-stable.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs system; };
+  outputs = { self, nixpkgs-stable, nixpkgs-unstable, home-manager, zen-browser
+    , ... }@inputs:
+    let system = "x86_64-linux";
+    in {
+      # 🖥️ Define your NixOS host here
+      nixosConfigurations = {
+        chetan = nixpkgs-stable.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs system; };
 
-        modules = [
+          modules = [
 
-          {nix.settings.experimental-features = [ "nix-command" "flakes"];}
-          ./configuration.nix
+            { nix.settings.experimental-features = [ "nix-command" "flakes" ]; }
+            ./configuration.nix
 
-          # 🏠 Home Manager module integration
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              backupFileExtension = "bak";
+            # 🏠 Home Manager module integration
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                backupFileExtension = "bak";
 
-              extraSpecialArgs = { inherit inputs; };
+                extraSpecialArgs = { inherit inputs; };
 
-              users.chetan = import ./home.nix;
-            };
-          }
-        ];
+                users.chetan = import ./home.nix;
+              };
+            }
+          ];
+        };
       };
     };
-
-    # ✨ Optional: Formatter
-    formatter.${system} = nixpkgs-stable.legacyPackages.${system}.nixfmt;
-  };
 }
