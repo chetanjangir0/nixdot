@@ -54,7 +54,14 @@
   # Enable the GNOME Desktop Environment.
   # services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
-  services.displayManager.cosmic-greeter.enable = true;
+  services.displayManager.ly = {
+        enable = true;
+        settings = {
+            animate = true;
+            animation = "colormix";
+        };
+        
+  };
   services.desktopManager.cosmic.enable = true;
 
   programs.sway.enable = true;
