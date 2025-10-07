@@ -160,6 +160,7 @@
     gcc # required for treesitter
     gnumake
     rustup
+    typst
   ];
   services.cloudflare-warp.enable = true;
 
