@@ -32,6 +32,8 @@
         specialArgs = { inherit inputs system; };
 
         modules = [
+
+          {nix.settings.experimental-features = [ "nix-command" "flakes"];}
           ./configuration.nix
 
           # 🏠 Home Manager module integration

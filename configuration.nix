@@ -10,9 +10,6 @@
       ./hardware-configuration.nix
     ];
 
-  # flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes"];
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -143,7 +140,7 @@
      wl-clipboard
      alacritty
      yazi
-     rofi
+     rofi-wayland
 
      tldr
      tmux
@@ -160,6 +157,7 @@
      go
      gcc #required for treesitter
      gnumake
+     rustup
   ];
   services.cloudflare-warp.enable = true;
   
