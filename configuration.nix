@@ -137,7 +137,7 @@
     slurp
     ghostty
 
-    tldr
+    tealdeer
     tmux
     tree
     vlc
