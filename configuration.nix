@@ -107,7 +107,7 @@
   users.users.chetan = {
     isNormalUser = true;
     description = "chetan";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "video"];
     shell = pkgs.zsh;
     packages = with pkgs;
       [
@@ -143,6 +143,7 @@
     rofi-wayland
     light
     slurp
+    ghostty
 
     tldr
     tmux
