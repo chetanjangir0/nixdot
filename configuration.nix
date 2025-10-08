@@ -107,7 +107,7 @@
   users.users.chetan = {
     isNormalUser = true;
     description = "chetan";
-    extraGroups = [ "networkmanager" "wheel" "video"];
+    extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
     packages = with pkgs;
       [
@@ -141,7 +141,6 @@
     alacritty
     yazi
     rofi-wayland
-    light
     slurp
     ghostty
 
