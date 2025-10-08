@@ -1,6 +1,2 @@
-sudo nixos-rebuild switch --flake .#chetan
+sudo nixos-rebuild switch --flake .#laptop
 
-
-<!-- # Switch only your home configuration -->
-<!-- home-manager switch --flake .#chetan -->
-nix run .#homeManager.activationPackage

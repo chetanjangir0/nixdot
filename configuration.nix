@@ -1,11 +1,7 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, inputs, system, ... }:
 
 {
-  imports = [ # Include the results of the hardware scan.
+  imports = [ 
     ./hardware-configuration.nix
   ];
 
@@ -115,11 +111,8 @@
       ];
   };
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     neovim
     git
@@ -164,11 +157,11 @@
   ];
   services.cloudflare-warp.enable = true;
 
-  services.keyd.enable = true;
-  services.keyd.keyboards.default = {
-    ids = [ "*" ];
-    settings = {
-      main = {
+  services.keyd = {
+    enable = true;
+    keyboards.default = {
+      ids = [ "*" ];
+      settings.main = {
         capslock = "overload(control,esc)";
         esc = "capslock";
       };
