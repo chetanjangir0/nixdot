@@ -1,7 +1,10 @@
 { config, pkgs, inputs, system, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [ 
+        ./hardware-configuration.nix 
+        ./systemModules/services/cosmic.nix
+    ];
 
   nixpkgs.overlays = [
     (final: prev: {
