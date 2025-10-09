@@ -14,10 +14,15 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs = { self, nixpkgs-stable, nixpkgs-unstable, home-manager, zen-browser
-    , ... }@inputs:
+    , nixos-cosmic, ... }@inputs:
     let system = "x86_64-linux";
     in {
 
@@ -26,6 +31,17 @@
         specialArgs = { inherit inputs system; };
 
         modules = [
+
+          # cosmic DE
+          {
+            nix.settings = {
+              substituters = [ "https://cosmic.cachix.org/" ];
+              trusted-public-keys = [
+                "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
+              ];
+            };
+          }
+          nixos-cosmic.nixosModules.default
 
           { nix.settings.experimental-features = [ "nix-command" "flakes" ]; }
           ./configuration.nix
