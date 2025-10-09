@@ -3,7 +3,6 @@
 {
   imports = [ 
         ./hardware-configuration.nix 
-        ./systemModules/services/cosmic.nix
     ];
 
   nixpkgs.overlays = [
