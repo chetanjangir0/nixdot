@@ -1,15 +1,13 @@
 { config, pkgs, inputs, system, ... }:
 
 {
-  imports = [ 
-        ./hardware-configuration.nix 
-    ];
+  imports = [ ./hardware-configuration.nix ];
 
-  nixpkgs.overlays = [
-    (final: prev: {
-      unstable = inputs.nixpkgs-unstable.legacyPackages.${system};
-    })
-  ];
+  # nixpkgs.overlays = [
+  #   (final: prev: {
+  #     unstable = inputs.nixpkgs-unstable.legacyPackages.${system};
+  #   })
+  # ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -28,6 +26,10 @@
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
+
+  # Enable Bluetooth
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_IN";
@@ -50,9 +52,9 @@
 
   # Enable the GNOME Desktop Environment.
   # services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
   services.displayManager.ly.enable = true;
-  # services.desktopManager.cosmic.enable = true;
+  services.desktopManager.cosmic.enable = true;
 
   programs.sway.enable = true;
 
@@ -128,13 +130,19 @@
     openssl
     ripgrep
 
+    #bluetooth
+    bluez
+    bluetui
+    blueman
+    bluez-tools
+
     # sway
     swaybg
     waybar
     wl-clipboard
     alacritty
     yazi
-    rofi-wayland
+    rofi
     slurp
     ghostty
 
