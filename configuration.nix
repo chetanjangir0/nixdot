@@ -3,7 +3,7 @@
 {
   imports = [ 
         ./hardware-configuration.nix 
-        # ./systemModules/programs/flatpak.nix
+        ./systemModules/programs/flatpak.nix
     ];
 
   # Bootloader.
