@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }: {
+{ config, pkgs, lib, inputs, ... }: {
 
   services.flatpak.enable = true;
 
@@ -14,8 +14,11 @@
   services.flatpak.update.onActivation = true;
 
   # Add Flatpak paths to session variables( to show in launcher (rofi))
-  # systemd.user.sessionVariables = {
-  #   XDG_DATA_DIRS =
-  #     "$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
+
+  # environment.sessionVariables = {
+  #   XDG_DATA_DIRS = lib.mkAfter [
+  #     "/var/lib/flatpak/exports/share"
+  #     "$HOME/.local/share/flatpak/exports/share"
+  #   ];
   # };
 }
