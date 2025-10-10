@@ -14,10 +14,12 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
+
   };
 
   outputs = { self, nixpkgs-stable, nixpkgs, home-manager, zen-browser
-    , ... }@inputs:
+    , nix-flatpak, ... }@inputs:
     let system = "x86_64-linux";
     in {
 
@@ -27,10 +29,11 @@
 
         modules = [
 
+          #main config file
           { nix.settings.experimental-features = [ "nix-command" "flakes" ]; }
-
           ./configuration.nix
 
+          # homehome-manager
           home-manager.nixosModules.home-manager
           {
             home-manager = {
@@ -43,6 +46,9 @@
               users.chetan = import ./home.nix;
             };
           }
+
+          # flatpak 
+          nix-flatpak.nixosModules.nix-flatpak
 
         ];
       };

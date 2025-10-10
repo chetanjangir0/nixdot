@@ -10,7 +10,7 @@ in {
   programs.home-manager.enable = true;
 
   imports = [
-    ./modules/programs/zen-browser.nix
+    ./homeModules/programs/zen-browser.nix
   ];
 
 }

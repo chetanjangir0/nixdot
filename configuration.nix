@@ -1,7 +1,10 @@
 { config, pkgs, inputs, system, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [ 
+        ./hardware-configuration.nix 
+        # ./systemModules/programs/flatpak.nix
+    ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
