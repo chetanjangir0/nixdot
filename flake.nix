@@ -16,10 +16,15 @@
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
+    blueboy = {
+      url = "github:chetanjangir0/blueboy";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = { self, nixpkgs-stable, nixpkgs, home-manager, zen-browser
-    , nix-flatpak, ... }@inputs:
+    , nix-flatpak,blueboy,  ... }@inputs:
     let system = "x86_64-linux";
     in {
 
@@ -49,6 +54,12 @@
 
           # flatpak 
           nix-flatpak.nixosModules.nix-flatpak
+
+          # blueboy
+          ({ pkgs, ... }: {
+            environment.systemPackages =
+              [ blueboy.packages.${pkgs.system}.default ];
+          })
 
         ];
       };
