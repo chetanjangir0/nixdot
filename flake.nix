@@ -63,6 +63,7 @@
             environment.systemPackages = [
               blueboy.packages.${pkgs.system}.default
               yt-x.packages."${pkgs.system}".default
+              pkgs.yt-dlp
             ];
           })
 
