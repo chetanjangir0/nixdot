@@ -21,10 +21,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    yt-x = {
+      url = "github:Benexl/yt-x";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs-stable, nixpkgs, home-manager, zen-browser
-    , nix-flatpak,blueboy,  ... }@inputs:
+    , nix-flatpak, blueboy, yt-x, ... }@inputs:
     let system = "x86_64-linux";
     in {
 
@@ -55,10 +59,11 @@
           # flatpak 
           nix-flatpak.nixosModules.nix-flatpak
 
-          # blueboy
           ({ pkgs, ... }: {
-            environment.systemPackages =
-              [ blueboy.packages.${pkgs.system}.default ];
+            environment.systemPackages = [
+              blueboy.packages.${pkgs.system}.default
+              yt-x.packages."${pkgs.system}".default
+            ];
           })
 
         ];
