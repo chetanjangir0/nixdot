@@ -109,6 +109,9 @@
     openssl
     ripgrep
 
+    # video
+    obs-studio
+
     #bluetooth
     bluez
     bluetui
