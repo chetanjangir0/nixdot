@@ -20,7 +20,7 @@
 
   # Enable Bluetooth
   hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
+  # services.blueman.enable = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_IN";
@@ -116,7 +116,7 @@
     #bluetooth
     bluez
     bluetui
-    blueman
+    # blueman
     bluez-tools
     sbc # standard bluetooth audio codec
     # libfdk_aac codec for apple earphones
