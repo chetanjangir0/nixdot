@@ -118,7 +118,7 @@
     bluetui
     blueman
     bluez-tools
-    libsbc # standard bluetooth audio codec
+    sbc # standard bluetooth audio codec
     # libfdk_aac codec for apple earphones
 
     # sway
