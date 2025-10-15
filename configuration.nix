@@ -136,6 +136,7 @@
     rofi
     slurp
     ghostty
+    nsxiv
 
     tealdeer
     tmux
