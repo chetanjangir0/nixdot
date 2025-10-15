@@ -43,6 +43,10 @@
 
   services.displayManager.ly.enable = true;
   services.desktopManager.cosmic.enable = true;
+  environment.cosmic.excludePackages = with pkgs; [
+    cosmic-edit
+    cosmic-player
+  ];
 
   programs.sway.enable = true;
 
