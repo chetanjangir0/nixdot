@@ -73,7 +73,8 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    wireplumber.enable = true;# the session manager that handles Bluetooth profile switching 
+    wireplumber.enable =
+      true; # the session manager that handles Bluetooth profile switching
   };
 
   fonts.fontconfig.enable = true;
@@ -112,6 +113,7 @@
 
     # video
     obs-studio
+    kdePackages.kdenlive
 
     #bluetooth
     bluez
