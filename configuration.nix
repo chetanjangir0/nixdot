@@ -118,6 +118,7 @@
     # video
     obs-studio
     kdePackages.kdenlive
+    gimp
 
     #bluetooth
     bluez
