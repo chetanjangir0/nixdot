@@ -1,8 +1,16 @@
-{ config, pkgs, inputs, system, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  system,
+  ...
+}:
 
 {
-  imports =
-    [ ./hardware-configuration.nix ./systemModules/programs/flatpak.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ./systemModules/programs/flatpak.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -43,7 +51,10 @@
 
   services.displayManager.ly.enable = true;
   services.desktopManager.cosmic.enable = true;
-  environment.cosmic.excludePackages = with pkgs; [ cosmic-edit cosmic-player ];
+  environment.cosmic.excludePackages = with pkgs; [
+    cosmic-edit
+    cosmic-player
+  ];
 
   programs.sway.enable = true;
 
@@ -74,8 +85,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    wireplumber.enable =
-      true; # the session manager that handles Bluetooth profile switching
+    wireplumber.enable = true; # the session manager that handles Bluetooth profile switching
   };
 
   fonts.fontconfig.enable = true;
@@ -88,12 +98,14 @@
   users.users.chetan = {
     isNormalUser = true;
     description = "chetan";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     shell = pkgs.zsh;
-    packages = with pkgs;
-      [
-        #  thunderbird
-      ];
+    packages = with pkgs; [
+      #  thunderbird
+    ];
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -153,6 +165,22 @@
     gnumake
     rustup
     typst
+
+    # neovim lsps, formatters
+    lua-language-server
+    typescript-language-server
+    rust-analyzer
+    gopls
+    tinymist
+    tailwindcss-language-server
+    marksman
+    nil # for nix
+
+    # formatters
+    stylua
+    prettier
+    nixfmt
+    eslint
   ];
   services.cloudflare-warp.enable = true;
 
@@ -183,7 +211,7 @@
     glibc
     zlib
     openssl
-    
+
     # marksman
     icu
     # Add other common libraries if you find LSPs failing for different reasons
