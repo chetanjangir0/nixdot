@@ -43,10 +43,7 @@
 
   services.displayManager.ly.enable = true;
   services.desktopManager.cosmic.enable = true;
-  environment.cosmic.excludePackages = with pkgs; [
-    cosmic-edit
-    cosmic-player
-  ];
+  environment.cosmic.excludePackages = with pkgs; [ cosmic-edit cosmic-player ];
 
   programs.sway.enable = true;
 
@@ -186,6 +183,9 @@
     glibc
     zlib
     openssl
+    
+    # marksman
+    icu
     # Add other common libraries if you find LSPs failing for different reasons
   ];
 
