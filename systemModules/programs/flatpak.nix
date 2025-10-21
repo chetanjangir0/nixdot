@@ -12,13 +12,4 @@
 
   # Optional: Update on activation
   services.flatpak.update.onActivation = true;
-
-  # Add Flatpak paths to session variables( to show in launcher (rofi))
-
-  # environment.sessionVariables = {
-  #   XDG_DATA_DIRS = lib.mkAfter [
-  #     "/var/lib/flatpak/exports/share"
-  #     "$HOME/.local/share/flatpak/exports/share"
-  #   ];
-  # };
 }

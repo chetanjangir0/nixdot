@@ -201,20 +201,4 @@
   # services.openssh.enable = true;
 
   system.stateVersion = "25.05"; # Did you read the comment?
-
-  # nixos and Mason conflict fix
-  ### 1. Enable nix-ld globally
-  programs.nix-ld.enable = true;
-  ### 2. Specify the essential libraries to expose to non-Nix binaries
-  ### This provides the necessary C runtime environment for almost all dynamically linked programs.
-  programs.nix-ld.libraries = with pkgs; [
-    glibc
-    zlib
-    openssl
-
-    # marksman
-    icu
-    # Add other common libraries if you find LSPs failing for different reasons
-  ];
-
 }
