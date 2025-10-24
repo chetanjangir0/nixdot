@@ -123,6 +123,7 @@
     btop
     openssl
     ripgrep
+    croc
 
     # video
     obs-studio
