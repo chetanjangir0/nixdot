@@ -124,6 +124,7 @@
     openssl
     ripgrep
     croc
+    obsidian
 
     # video
     obs-studio
