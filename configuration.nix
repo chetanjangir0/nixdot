@@ -167,13 +167,11 @@
     go
     gcc # required for treesitter
     gnumake
-    rustup
     typst
 
     # neovim lsps, formatters
     lua-language-server
     typescript-language-server
-    rust-analyzer
     gopls
     tinymist
     tailwindcss-language-server
@@ -185,6 +183,13 @@
     prettier
     nixfmt
     eslint
+
+    # rust
+    rustc
+    cargo
+    rust-analyzer
+    rustfmt
+    clippy # linter
   ];
   services.cloudflare-warp.enable = true;
 
