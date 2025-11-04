@@ -5,6 +5,12 @@
   system,
   ...
 }:
+let
+  stable = import inputs.stable {
+    inherit system;
+    config.allowUnfree = true;
+  };
+in
 
 {
   imports = [
@@ -130,8 +136,8 @@
 
     # video
     obs-studio
-    kdePackages.kdenlive
     gimp
+    kdePackages.kdenlive
 
     #bluetooth
     bluez

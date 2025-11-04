@@ -2,7 +2,7 @@
   description = "Chetan's NixOS configuration with Zen Browser + Home Manager";
 
   inputs = {
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
+    stable.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
@@ -22,7 +22,7 @@
     };
   };
 
-  outputs = { self, nixpkgs-stable, nixpkgs, home-manager, zen-browser
+  outputs = { self, stable, nixpkgs, home-manager, zen-browser
     , nix-flatpak, blueboy, ... }@inputs:
     let system = "x86_64-linux";
     in {
