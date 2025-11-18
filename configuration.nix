@@ -136,7 +136,6 @@ in
 
     # video
     obs-studio
-    gimp
     kdePackages.kdenlive
 
     #bluetooth
