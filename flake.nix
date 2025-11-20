@@ -73,20 +73,17 @@
           # flatpak
           nix-flatpak.nixosModules.nix-flatpak
 
-          (
-            { pkgs, ... }:
-            {
-              environment.systemPackages = [ blueboy.packages.${pkgs.system}.default ];
-            }
-          )
-
-          # nvim nightly
-          (
-            { pkgs, ... }:
-            {
-              nixpkgs.overlays = [ neovim-nightly.overlays.default ];
-            }
-          )
+          # overlays
+          {
+            nixpkgs.overlays = [
+              # neovim nightly overlay (replace nvim with this nightly)
+              neovim-nightly.overlays.default
+              # blueboy overlay (add new blueboy package)
+              (final: prev: {
+                blueboy = blueboy.packages.${system}.default;
+              })
+            ];
+          }
 
         ];
       };

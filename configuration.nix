@@ -133,6 +133,7 @@ in
     ripgrep
     croc
     obsidian
+    blueboy
 
     # video
     obs-studio
