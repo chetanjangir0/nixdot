@@ -182,6 +182,7 @@ in
     tailwindcss-language-server
     marksman
     nil # for nix
+    svelte-language-server
 
     # formatters
     stylua
