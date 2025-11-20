@@ -20,12 +20,26 @@
       url = "github:chetanjangir0/blueboy";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
   };
 
-  outputs = { self, stable, nixpkgs, home-manager, zen-browser
-    , nix-flatpak, blueboy, ... }@inputs:
-    let system = "x86_64-linux";
-    in {
+  outputs =
+    {
+      self,
+      stable,
+      nixpkgs,
+      home-manager,
+      zen-browser,
+      nix-flatpak,
+      blueboy,
+      neovim-nightly,
+      ...
+    }@inputs:
+    let
+      system = "x86_64-linux";
+    in
+    {
 
       nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
         inherit system;
@@ -34,7 +48,12 @@
         modules = [
 
           #main config file
-          { nix.settings.experimental-features = [ "nix-command" "flakes" ]; }
+          {
+            nix.settings.experimental-features = [
+              "nix-command"
+              "flakes"
+            ];
+          }
           ./configuration.nix
 
           # homehome-manager
@@ -51,13 +70,23 @@
             };
           }
 
-          # flatpak 
+          # flatpak
           nix-flatpak.nixosModules.nix-flatpak
 
-          ({ pkgs, ... }: {
-            environment.systemPackages =
-              [ blueboy.packages.${pkgs.system}.default ];
-          })
+          (
+            { pkgs, ... }:
+            {
+              environment.systemPackages = [ blueboy.packages.${pkgs.system}.default ];
+            }
+          )
+
+          # nvim nightly
+          (
+            { pkgs, ... }:
+            {
+              nixpkgs.overlays = [ neovim-nightly.overlays.default ];
+            }
+          )
 
         ];
       };
