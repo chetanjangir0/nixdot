@@ -162,6 +162,7 @@ in
     tmux
     tree
     vlc
+    mpv
     zathura
     posting
 

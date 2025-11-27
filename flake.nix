@@ -76,7 +76,7 @@
           # overlays
           {
             nixpkgs.overlays = [
-              # neovim nightly overlay (replace nvim with this nightly)
+              # neovim nightly overlay (replaces nvim with this nightly)
               neovim-nightly.overlays.default
               # blueboy overlay (add new blueboy package)
               (final: prev: {
