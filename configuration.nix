@@ -155,6 +155,8 @@ in
     yazi
     rofi
     slurp
+    grim
+    tesseract
     ghostty
     nsxiv
 
