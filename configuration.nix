@@ -134,6 +134,7 @@ in
     croc
     obsidian
     blueboy
+    openssh
 
     # video
     obs-studio
@@ -214,7 +215,7 @@ in
     };
   };
 
-  programs.ssh.startAgent = false; # cosmic de already provides its own
+  # programs.ssh.startAgent = false;
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
