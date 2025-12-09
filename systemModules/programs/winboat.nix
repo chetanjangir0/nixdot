@@ -1,5 +1,10 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+
+{
   environment.systemPackages = with pkgs; [
-    winboat
+    (winboat.overrideAttrs (oldAttrs: {
+      makeCacheWritable = true;
+      npmFlags = [ "--legacy-peer-deps" ];
+    }))
   ];
 }
