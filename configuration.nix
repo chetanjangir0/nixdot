@@ -16,7 +16,6 @@ in
   imports = [
     ./hardware-configuration.nix
     ./systemModules/programs/flatpak.nix
-    ./systemModules/programs/winboat.nix
   ];
 
   # Bootloader.
