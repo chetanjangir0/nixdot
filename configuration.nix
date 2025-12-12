@@ -17,6 +17,8 @@ in
     ./hardware-configuration.nix
     ./systemModules/programs/flatpak.nix
     ./systemModules/services/docker.nix
+    ./systemModules/services/keyd.nix
+    ./systemModules/services/omz.nix
   ];
 
   # Bootloader.
@@ -64,17 +66,6 @@ in
   ];
 
   programs.sway.enable = true;
-
-  # oh my zsh
-  environment.shells = with pkgs; [ zsh ];
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
-
-  # because the declarative omz was not respecting my dotfiles
-  environment.shellInit = ''
-    if [ ! -d "$HOME/.oh-my-zsh" ]; then
-       git clone https://github.com/ohmyzsh/ohmyzsh.git "$HOME/.oh-my-zsh"
-    fi'';
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -202,17 +193,6 @@ in
     clippy # linter
   ];
   services.cloudflare-warp.enable = true;
-
-  services.keyd = {
-    enable = true;
-    keyboards.default = {
-      ids = [ "*" ];
-      settings.main = {
-        capslock = "overload(control,esc)";
-        esc = "capslock";
-      };
-    };
-  };
 
   # programs.ssh.startAgent = false;
 
