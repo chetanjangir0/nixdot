@@ -158,7 +158,6 @@ in
     slurp
     grim
     tesseract
-    ghostty
     nsxiv
     swaylock
 
@@ -166,7 +165,6 @@ in
     nix-search
     tmux
     tree
-    vlc
     mpv
     zathura
     posting
