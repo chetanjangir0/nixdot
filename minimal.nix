@@ -15,7 +15,6 @@ in
 {
   imports = [
     ./systemModules/programs/flatpak.nix
-    ./systemModules/services/docker.nix
     ./systemModules/services/keyd.nix
     ./systemModules/services/omz.nix
   ];
@@ -62,11 +61,6 @@ in
   services.xserver.enable = true;
 
   services.displayManager.ly.enable = true;
-  services.desktopManager.cosmic.enable = true;
-  environment.cosmic.excludePackages = with pkgs; [
-    cosmic-edit
-    cosmic-player
-  ];
 
   programs.sway.enable = true;
 
@@ -128,10 +122,6 @@ in
     obsidian
     blueboy
     openssh
-
-    # video
-    obs-studio
-    kdePackages.kdenlive
 
     #bluetooth
     bluez
