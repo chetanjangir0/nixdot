@@ -49,7 +49,7 @@
           };
 
           modules = [
-            ./configuration.nix # minimal base
+            ./minimal.nix # minimal base
             ./machines/${machine_name}
 
             # home-manager
