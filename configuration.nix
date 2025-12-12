@@ -14,13 +14,16 @@ in
 
 {
   imports = [
-    ./hardware-configuration.nix
     ./systemModules/programs/flatpak.nix
     ./systemModules/services/docker.nix
     ./systemModules/services/keyd.nix
     ./systemModules/services/omz.nix
   ];
 
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

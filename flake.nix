@@ -1,5 +1,5 @@
 {
-  description = "Chetan's NixOS configuration with Zen Browser + Home Manager";
+  description = "my modular nixos config";
 
   inputs = {
     stable.url = "github:NixOS/nixpkgs/nixos-25.05";
@@ -38,54 +38,49 @@
     }@inputs:
     let
       system = "x86_64-linux";
+
+      mkMyConfig =
+        machine_name:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+
+          specialArgs = {
+            inherit inputs system;
+          };
+
+          modules = [
+            ./configuration.nix # minimal base
+            ./machines/${machine_name}
+
+            # home-manager
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                backupFileExtension = "bak";
+                extraSpecialArgs = { inherit inputs; };
+                users.chetan = import ./home.nix;
+              };
+            }
+
+            nix-flatpak.nixosModules.nix-flatpak
+
+            # overlays
+            {
+              nixpkgs.overlays = [
+                neovim-nightly.overlays.default
+                (final: prev: {
+                  blueboy = blueboy.packages.${system}.default;
+                })
+              ];
+            }
+          ];
+        };
     in
     {
-
-      nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs system; };
-
-        modules = [
-
-          #main config file
-          {
-            nix.settings.experimental-features = [
-              "nix-command"
-              "flakes"
-            ];
-          }
-          ./configuration.nix
-
-          # homehome-manager
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              backupFileExtension = "bak";
-
-              extraSpecialArgs = { inherit inputs; };
-
-              users.chetan = import ./home.nix;
-            };
-          }
-
-          # flatpak
-          nix-flatpak.nixosModules.nix-flatpak
-
-          # overlays
-          {
-            nixpkgs.overlays = [
-              # neovim nightly overlay (replaces nvim with this nightly)
-              neovim-nightly.overlays.default
-              # blueboy overlay (add new blueboy package)
-              (final: prev: {
-                blueboy = blueboy.packages.${system}.default;
-              })
-            ];
-          }
-
-        ];
+      nixosConfigurations = {
+        aeldari = mkMyConfig "aeldari";
       };
     };
 }
