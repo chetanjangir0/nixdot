@@ -160,6 +160,7 @@ in
     tesseract
     ghostty
     nsxiv
+    swaylock
 
     tealdeer
     tmux
