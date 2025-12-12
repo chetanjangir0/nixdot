@@ -1,6 +1,6 @@
 # ❄️ NixOS Configuration
 
-Multi-host modular NixOS configuration. Powered by [Nix Flakes](https://nixos.wiki/wiki/Flakes).
+Multi-host modular NixOS configuration. Inspired by [L3MON4D3's config](https://github.com/L3MON4D3/Dotfiles).
 
 ## 🖥️ Hosts
 
