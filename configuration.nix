@@ -163,6 +163,7 @@ in
     swaylock
 
     tealdeer
+    nix-search
     tmux
     tree
     vlc
