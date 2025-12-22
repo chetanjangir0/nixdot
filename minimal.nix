@@ -193,4 +193,16 @@ in
   # services.openssh.enable = true;
 
   system.stateVersion = "25.05"; # Did you read the comment?
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 15d";
+  };
+
+  nix.optimise = {
+    automatic = true;
+    dates = [ "weekly" ];
+  };
+
 }
