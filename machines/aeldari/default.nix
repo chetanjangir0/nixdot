@@ -18,5 +18,6 @@
     # video
     obs-studio
     kdePackages.kdenlive
+    presenterm
   ];
 }
