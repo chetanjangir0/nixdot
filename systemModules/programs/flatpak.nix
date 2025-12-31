@@ -2,7 +2,7 @@
 
   services.flatpak.enable = true;
 
-  services.flatpak.packages = [ "eu.betterbird.Betterbird" "net.audiorelay.AudioRelay"];
+  services.flatpak.packages = [ "eu.betterbird.Betterbird" ];
 
   # Optional: specify remotes
   services.flatpak.remotes = [{
