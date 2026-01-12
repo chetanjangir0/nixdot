@@ -122,6 +122,7 @@ in
     obsidian
     blueboy
     openssh
+    lazygit
 
     #bluetooth
     bluez
