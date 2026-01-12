@@ -12,6 +12,7 @@
   environment.cosmic.excludePackages = with pkgs; [
     cosmic-edit
     cosmic-player
+    ncdu
   ];
 
   environment.systemPackages = with pkgs; [
