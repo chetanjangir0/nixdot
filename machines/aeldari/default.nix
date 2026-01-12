@@ -12,7 +12,6 @@
   environment.cosmic.excludePackages = with pkgs; [
     cosmic-edit
     cosmic-player
-    ncdu
   ];
 
   environment.systemPackages = with pkgs; [
@@ -20,5 +19,6 @@
     obs-studio
     kdePackages.kdenlive
     presenterm
+    ncdu
   ];
 }
