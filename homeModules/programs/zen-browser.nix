@@ -1,7 +1,7 @@
 { config, pkgs, inputs, ... }:
 
 {
-  imports = [ inputs.zen-browser.homeModules.beta ];
+  imports = [ inputs.zen-browser.homeModules.twilight ];
 
   programs.zen-browser = {
     enable = true;
