@@ -21,6 +21,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    onepdfplease = {
+      url = "github:chetanjangir0/onepdfplease";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
   };
 
@@ -33,6 +38,7 @@
       zen-browser,
       nix-flatpak,
       blueboy,
+      onepdfplease,
       neovim-nightly,
       ...
     }@inputs:
@@ -72,6 +78,7 @@
                 neovim-nightly.overlays.default
                 (final: prev: {
                   blueboy = blueboy.packages.${system}.default;
+                  onepdfplease = onepdfplease.packages.${system}.default;
                 })
               ];
             }

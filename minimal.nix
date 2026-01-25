@@ -123,6 +123,7 @@ in
     blueboy
     openssh
     lazygit
+    onepdfplease
 
     #bluetooth
     bluez
