@@ -17,7 +17,7 @@
   environment.systemPackages = with pkgs; [
     # video
     obs-studio
-    kdePackages.kdenlive
+    # kdePackages.kdenlive
     presenterm
     ncdu
   ];
