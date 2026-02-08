@@ -210,11 +210,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1770053367,
-        "narHash": "sha256-H0CLSVeLSNae6GjeoOyFHuOvobUh3yBW0b3NJbelsLY=",
+        "lastModified": 1770556203,
+        "narHash": "sha256-U5bPY9219mFTNePiWBEkyJ999co8h0lbboNzzanpeDE=",
         "owner": "chetanjangir0",
         "repo": "onepdfplease",
-        "rev": "e5019903f4e3bb66f7d35a563b8e92c78c4a92ab",
+        "rev": "52cb617370dd28279346cb83e60b23605d913b27",
         "type": "github"
       },
       "original": {
