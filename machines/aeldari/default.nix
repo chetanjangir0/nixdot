@@ -21,5 +21,6 @@
     presenterm
     ncdu
     python3
+    pyright
   ];
 }
