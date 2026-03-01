@@ -20,5 +20,6 @@
     # kdePackages.kdenlive
     presenterm
     ncdu
+    python3
   ];
 }
