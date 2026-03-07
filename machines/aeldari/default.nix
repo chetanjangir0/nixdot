@@ -22,6 +22,7 @@
     ncdu
     python3
     pyright
+    black
 
     sioyek
   ];
