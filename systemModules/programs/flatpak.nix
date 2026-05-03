@@ -2,7 +2,7 @@
 
   services.flatpak.enable = true;
 
-  services.flatpak.packages = [ "eu.betterbird.Betterbird" ];
+  services.flatpak.packages = [ "eu.betterbird.Betterbird" "com.usebottles.bottles"];
 
   # Optional: specify remotes
   services.flatpak.remotes = [{
