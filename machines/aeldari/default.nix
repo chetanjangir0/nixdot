@@ -6,7 +6,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../systemModules/programs/bottles.nix
   ];
 
   services.desktopManager.cosmic.enable = true;
