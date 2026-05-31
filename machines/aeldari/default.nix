@@ -25,5 +25,6 @@
     black
 
     sioyek
+    codex
   ];
 }
