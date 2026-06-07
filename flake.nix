@@ -75,7 +75,7 @@
             # overlays
             {
               nixpkgs.overlays = [
-                neovim-nightly.overlays.default
+                # neovim-nightly.overlays.default
                 (final: prev: {
                   blueboy = blueboy.packages.${system}.default;
                   onepdfplease = onepdfplease.packages.${system}.default;
