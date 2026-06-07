@@ -107,6 +107,7 @@ in
 
   environment.systemPackages = with pkgs; [
     neovim
+    tree-sitter
     git
     stow
     cloudflare-warp
