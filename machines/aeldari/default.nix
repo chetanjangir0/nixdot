@@ -26,5 +26,14 @@
 
     sioyek
     codex
+
+    hyprpaper
+    nemo
+    kitty
+    quickshell
+    hyprshot
+    mako 
+    jq
+    socat
   ];
 }
