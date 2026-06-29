@@ -27,6 +27,7 @@
     sioyek
     codex
 
+    hyprland
     hyprpaper
     nemo
     kitty
