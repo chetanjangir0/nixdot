@@ -27,7 +27,6 @@
     sioyek
     codex
 
-    hyprland
     hyprpaper
     nemo
     kitty
@@ -37,4 +36,13 @@
     jq
     socat
   ];
+
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
 }
+
