@@ -27,22 +27,22 @@
     sioyek
     codex
 
-    hyprpaper
-    nemo
-    kitty
-    quickshell
-    hyprshot
-    mako 
-    jq
-    socat
+    # hyprpaper
+    # nemo
+    # kitty
+    # quickshell
+    # hyprshot
+    # mako 
+    # jq
+    # socat
   ];
 
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
-  services.displayManager.sddm.enable = true;
+  # programs.hyprland = {
+  #   enable = true;
+  #   xwayland.enable = true;
+  # };
+  #
+  # services.displayManager.sddm.enable = true;
   # services.displayManager.sddm.wayland.enable = true;
 }
 
