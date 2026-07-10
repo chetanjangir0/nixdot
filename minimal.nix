@@ -17,6 +17,7 @@ in
     ./systemModules/programs/flatpak.nix
     ./systemModules/services/keyd.nix
     ./systemModules/services/omz.nix
+    ./systemModules/services/minecraft.nix
   ];
 
   nix.settings.experimental-features = [
