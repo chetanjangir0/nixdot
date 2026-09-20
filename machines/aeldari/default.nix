@@ -13,7 +13,7 @@
     cosmic-edit
     cosmic-player
   ];
-
+  programs.steam.enable = true;
   environment.systemPackages = with pkgs; [
     # video
     obs-studio
@@ -32,7 +32,7 @@
     # kitty
     # quickshell
     # hyprshot
-    # mako 
+    # mako
     # jq
     # socat
   ];
@@ -45,4 +45,3 @@
   # services.displayManager.sddm.enable = true;
   # services.displayManager.sddm.wayland.enable = true;
 }
-
