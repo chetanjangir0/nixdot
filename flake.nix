@@ -51,12 +51,16 @@
           inherit system;
 
           specialArgs = {
-            inherit inputs system;
+            inherit inputs system machine_name;
           };
 
           modules = [
             ./minimal.nix # minimal base
             ./machines/${machine_name}
+
+            {
+              networking.hostName = machine_name;
+            }
 
             # home-manager
             home-manager.nixosModules.home-manager
