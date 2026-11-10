@@ -2,7 +2,7 @@
   config,
   pkgs,
   inputs,
-  system,
+  system, lib,
   ...
 }:
 let
@@ -28,7 +28,7 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 5;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = lib.mkDefault "nixos";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Enable networking
