@@ -197,15 +197,23 @@ in
 
   system.stateVersion = "25.05"; # Did you read the comment?
 
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 15d";
-  };
+  # nix.gc = {
+  #   automatic = true;
+  #   dates = "weekly";
+  #   options = "--delete-older-than 15d";
+  # };
 
   nix.optimise = {
     automatic = true;
     dates = [ "weekly" ];
+  };
+
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.dates = "weekly";
+    clean.extraArgs = "--keep-since 14d --keep 3";
+    flake = "/home/chetan/nixdot";
   };
 
   programs.nix-ld.enable = true;
