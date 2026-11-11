@@ -26,6 +26,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -38,6 +42,7 @@
       nix-flatpak,
       blueboy,
       onepdfplease,
+      nixos-wsl,
       ...
     }@inputs:
     let
@@ -99,6 +104,7 @@
     {
       nixosConfigurations = {
         aeldari = mkMyConfig "aeldari" "chetan" "x86_64-linux";
+        necron = mkMyConfig "necron" "chetan" "x86_64-linux";
       };
     };
 }

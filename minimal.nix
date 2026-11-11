@@ -13,7 +13,7 @@
   ];
 
   networking.hostName = lib.mkDefault "nixos";
-  networking.networkmanager.enable = true;
+  networking.networkmanager.enable = lib.mkDefault true;
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";

@@ -16,7 +16,7 @@
   home = {
     username = username;
     homeDirectory = "/home/${username}";
-    stateVersion = "25.05";
+    stateVersion = "25.05"; # do not change
 
     packages = with pkgs; [
       # CLI workflow tools
