@@ -70,7 +70,12 @@
                 useUserPackages = true;
                 backupFileExtension = "bak";
                 extraSpecialArgs = { inherit inputs; };
-                users.chetan = import ./home.nix;
+                users.chetan = { ... }: {
+                  imports = [
+                    ./home.nix
+                  ]
+                  ++ nixpkgs.lib.optional (builtins.pathExists ./machines/${machine_name}/home.nix) ./machines/${machine_name}/home.nix;
+                };
               };
             }
 

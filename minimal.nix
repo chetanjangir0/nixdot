@@ -50,63 +50,14 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    neovim
-    tree-sitter
     git
-    stow
-    cloudflare-warp
-    bat
     curl
-    fastfetch
-    ffmpeg
-    fzf
     btop
     openssl
-    ripgrep
-    croc
-    obsidian
-    blueboy
     openssh
-    lazygit
-    onepdfplease
-
-    tealdeer
-    nix-search
-    tmux
+    stow
     tree
-    mpv
-    zathura
-    posting
-
-    # languages
-    nodejs
-    go
-    gcc # required for treesitter
-    gnumake
-    typst
-
-    # neovim lsps, formatters
-    lua-language-server
-    typescript-language-server
-    gopls
-    tinymist
-    tailwindcss-language-server
-    marksman
-    nil # for nix
-    svelte-language-server
-
-    # formatters
-    stylua
-    prettier
-    nixfmt-rfc-style
-    eslint
-
-    # rust
-    rustc
-    cargo
-    rust-analyzer
-    rustfmt
-    clippy # linter
+    cloudflare-warp
   ];
 
   services.cloudflare-warp.enable = true;
