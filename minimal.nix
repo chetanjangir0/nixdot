@@ -2,7 +2,8 @@
   config,
   pkgs,
   inputs,
-  system, lib,
+  system,
+  lib,
   ...
 }:
 let
@@ -16,7 +17,6 @@ in
   imports = [
     ./systemModules/programs/flatpak.nix
     ./systemModules/services/keyd.nix
-    ./systemModules/services/omz.nix
   ];
 
   nix.settings.experimental-features = [
@@ -63,6 +63,7 @@ in
   services.displayManager.ly.enable = true;
 
   programs.sway.enable = true;
+  programs.zsh.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {

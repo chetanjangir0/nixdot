@@ -11,6 +11,7 @@ in {
 
   imports = [
     ./homeModules/programs/zen-browser.nix
+    ./homeModules/programs/zsh.nix
   ];
 
 }
