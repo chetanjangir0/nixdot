@@ -55,6 +55,7 @@
     waybar
     wl-clipboard
     alacritty
+    ghostty
     rofi
     slurp
     grim
