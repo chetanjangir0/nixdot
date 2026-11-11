@@ -18,14 +18,15 @@
     # video
     obs-studio
     # kdePackages.kdenlive
-    presenterm
+    # presenterm
     ncdu
     python3
     pyright
     black
 
     sioyek
-    codex
+    # codex
+    antigravity-hub
 
     # hyprpaper
     # nemo
