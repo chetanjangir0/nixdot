@@ -6,6 +6,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../../systemModules/desktop.nix
   ];
 
   services.desktopManager.cosmic.enable = true;
