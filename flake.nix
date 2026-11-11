@@ -41,11 +41,10 @@
       ...
     }@inputs:
     let
-      system = "x86_64-linux";
-
       mkMyConfig =
         machine_name:
         username:
+        system:
         nixpkgs.lib.nixosSystem {
           inherit system;
 
@@ -99,7 +98,7 @@
     in
     {
       nixosConfigurations = {
-        aeldari = mkMyConfig "aeldari" "chetan";
+        aeldari = mkMyConfig "aeldari" "chetan" "x86_64-linux";
       };
     };
 }
