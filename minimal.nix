@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  username,
   ...
 }:
 
@@ -37,9 +38,9 @@
   programs.zsh.enable = true;
 
   # Define a user account.
-  users.users.chetan = {
+  users.users.${username} = {
     isNormalUser = true;
-    description = "chetan";
+    description = username;
     extraGroups = [
       "networkmanager"
       "wheel"
@@ -74,7 +75,7 @@
     clean.enable = true;
     clean.dates = "weekly";
     clean.extraArgs = "--keep-since 14d --keep 3";
-    flake = "/home/chetan/nixdot";
+    flake = "/home/${username}/nixdot";
   };
 
   programs.nix-ld.enable = true;

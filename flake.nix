@@ -45,11 +45,17 @@
 
       mkMyConfig =
         machine_name:
+        username:
         nixpkgs.lib.nixosSystem {
           inherit system;
 
           specialArgs = {
-            inherit inputs system machine_name;
+            inherit
+              inputs
+              system
+              machine_name
+              username
+              ;
           };
 
           modules = [
@@ -67,8 +73,8 @@
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 backupFileExtension = "bak";
-                extraSpecialArgs = { inherit inputs; };
-                users.chetan = { ... }: {
+                extraSpecialArgs = { inherit inputs username; };
+                users.${username} = { ... }: {
                   imports = [
                     ./home.nix
                   ]
@@ -83,8 +89,8 @@
             {
               nixpkgs.overlays = [
                 (final: prev: {
-                  blueboy = blueboy.packages.${system}.default;
-                  onepdfplease = onepdfplease.packages.${system}.default;
+                  blueboy = blueboy.packages.${prev.stdenv.hostPlatform.system}.default;
+                  onepdfplease = onepdfplease.packages.${prev.stdenv.hostPlatform.system}.default;
                 })
               ];
             }
@@ -93,7 +99,7 @@
     in
     {
       nixosConfigurations = {
-        aeldari = mkMyConfig "aeldari";
+        aeldari = mkMyConfig "aeldari" "chetan";
       };
     };
 }

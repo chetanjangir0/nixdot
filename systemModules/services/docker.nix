@@ -1,9 +1,9 @@
-{ ... }:
+{ username, ... }:
 
 {
   virtualisation.docker.enable = true;
 
-  users.users.chetan.extraGroups = [
+  users.users.${username}.extraGroups = [
     "docker"
   ];
 }

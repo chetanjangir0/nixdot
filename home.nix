@@ -2,11 +2,9 @@
   inputs,
   pkgs,
   config,
+  username,
   ...
 }:
-let
-  username = "chetan";
-in
 {
 
   programs.home-manager.enable = true;
