@@ -27,6 +27,7 @@ in
       tmux
       bat
       fzf
+      ripgrep
       lazygit
       croc
       tealdeer
